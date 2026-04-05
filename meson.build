@@ -22,7 +22,7 @@ add_project_arguments('-DPIPEMIXER_VERSION="@0@"'.format(meson.project_version()
 
 pipewire_dep = dependency('libpipewire-0.3')
 ncursesw_dep = dependency('ncursesw')
-inih_dep = dependency('inih')
+# inih_dep = dependency('inih')
 
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m')
@@ -54,6 +54,7 @@ pipemixer_sources = [
   'src/pw/types.c',
   'src/pw/device.c',
   'src/pw/node.c',
+  'src/ini.c',
   default_config_source
 ]
 
@@ -63,7 +64,7 @@ include_dirs = [
 
 executable('pipemixer', pipemixer_sources,
   include_directories: include_dirs,
-  dependencies: [ncursesw_dep, pipewire_dep, m_dep, inih_dep],
+  dependencies: [ncursesw_dep, pipewire_dep, m_dep],
   install: true)
 
 install_data(
