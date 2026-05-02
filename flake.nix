@@ -43,7 +43,6 @@
 
                         pipewire
                         ncurses
-                        libnotify
                         glibc
                     ];
 
